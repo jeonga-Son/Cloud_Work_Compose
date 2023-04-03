@@ -1,0 +1,10 @@
+create table members (
+    id number,
+    name varchar2(50),
+    job varchar2(50),
+    home varchar2(50)
+);
+
+insert into members values(1, 'aa', 'IT', 'seoul');
+insert into members values(2, 'bb', 'Manager', 'NewYork');
+commit;
