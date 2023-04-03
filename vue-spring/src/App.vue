@@ -1,13 +1,25 @@
 <template>
   <div class="container">
     <h2>Member List</h2>
-   <div
-      v-for="member in members"
-      :key="member.id"
-      class="d-flex">
-      <div class="flex-grow-1">
-        {{member.name}}
-      </div>
+   <div>
+      <table class="table table-primary">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">job</th>
+            <th scope="col">home</th>
+          </tr>
+        </thead>
+        <tbody :value="member.id" :key="member.id" v-for="member in members">
+          <tr>
+            <th scope="row">{{member.id}}</th>
+            <td>{{member.name}}</td>
+            <td>{{member.job}}</td>
+            <td>{{member.home}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>     
   </div>
 </template>
@@ -26,7 +38,7 @@ export default {
     const members = ref([]);
 
     const getMembers = async () => {
-      console.log("aaaaaaaaaaaaaaaaaaaaa");
+      console.log("ok!!!!!!!!!!!!");
       try{
         const res = await axios.get('/members');               
         members.value = res.data;
